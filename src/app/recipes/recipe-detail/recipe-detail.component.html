@@ -5,7 +5,7 @@
 </div>
 <div class="row">
   <div class="col-sx-12">
-    <h1>Recipe Name</h1>
+    <h1>{{details.name}}</h1>
   </div>
 </div>
 <div class="row">
@@ -22,6 +22,17 @@
 <div>
   <div class="row">
     <div class="col-xs-12">
-      Description
+      {{details.desccription}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+  <span class="pull-right">
+        <img
+          [src]="details.imagePath"
+          alt="{{details.name}}"
+          class="img-responsive"
+          style="max-height: 100px;">
+      </span>
     </div>
   </div>
