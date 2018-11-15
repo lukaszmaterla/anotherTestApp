@@ -1,6 +1,9 @@
 <div class="row">
   <div class="col-sx-12">
-    <img src="" alt="" class="img-responsive">
+    <img
+      [src]="details.imagePath"
+      [alt]="details.name"
+      class="img-responsive">
   </div>
 </div>
 <div class="row">
@@ -23,16 +26,5 @@
   <div class="row">
     <div class="col-xs-12">
       {{details.desccription}}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-  <span class="pull-right">
-        <img
-          [src]="details.imagePath"
-          alt="{{details.name}}"
-          class="img-responsive"
-          style="max-height: 100px;">
-      </span>
     </div>
   </div>
