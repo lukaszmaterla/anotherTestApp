@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  default = 'recipe';
+
+  onNavigate(name: string) {
+    console.log(name);
+    this.default = name;
+  }
 }
 
