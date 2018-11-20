@@ -5,7 +5,7 @@
   <hr>
   <div class="col-sx-12">
     <app-recipe-item
-      *ngFor="let recipe of recepis"
+      *ngFor="let recipe of recipes"
     [recipePassed]="recipe"
     (recipeDetails)="onRecipeSelected(recipe)" ></app-recipe-item>
   </div>
