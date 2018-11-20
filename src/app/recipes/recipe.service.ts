@@ -1,15 +1,49 @@
 import {Recipe} from './recipe.model';
 import {EventEmitter} from '@angular/core';
+import {Ingredient} from '../shared/ingredient.model';
 
 export class RecipeService {
 
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('A test recipe 1', 'test34', 'https://cdn.pixabay.com/photo/2017/11/08/15/34/recipe-2930786_960_720.jpg'),
-    new Recipe('A test recipe 2', 'test3', 'https://cdn.pixabay.com/photo/2017/11/08/15/34/recipe-2930786_960_720.jpg'),
-    new Recipe('A test recipe 3', 'test33333', 'https://cdn.pixabay.com/photo/2017/11/08/15/34/recipe-2930786_960_720.jpg'),
-    new Recipe('A test recipe 4', 'test55555', 'https://cdn.pixabay.com/photo/2017/11/08/15/34/recipe-2930786_960_720.jpg')
+    new Recipe(
+      'Schnitzel',
+      'test34',
+      'https://thecozyapron.com/wp-content/uploads/2012/02/schnitzel_thecozyapron_1.jpg',
+      [
+        new Ingredient('Meat',1),
+        new Ingredient('French Freis', 3),
+      ]
+    ),
+    new Recipe(
+      'Burger',
+      'test3',
+      'https://img.grouponcdn.com/deal/6vJFKaiPx4BfyDa77mgL/dx-960x576/v1/c700x420.jpg',
+      [
+        new Ingredient('Buns', 2),
+        new Ingredient('Meat', 1),
+        new Ingredient('Tomato', 3)
+      ]
+    ),
+    new Recipe(
+      'Pizza',
+      'test33333',
+      'https://img.grouponcdn.com/deal/nhjcKdKnuawjKX427U9F/GK-2048x1229/v1/c700x420.jpg',
+      [
+        new Ingredient('Cham', 2),
+        new Ingredient('Chesse', 3)
+      ]
+    ),
+    new Recipe(
+      'Spagetti',
+      'test55555',
+      'http://t-time.pl/modules/dayfeatures/images/kitchen/spagetti-z-kielbasa-mielona.jpg',
+      [
+        new Ingredient('pasta', 10),
+        new Ingredient('souce', 12)
+      ]
+    )
   ];
 
   getRecipes() {
