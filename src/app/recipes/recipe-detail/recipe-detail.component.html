@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-sx-12">
     <img
-      [src]="details.imagePath"
-      [alt]="details.name"
+      [src]="recipe.imagePath"
+      [alt]="recipe.name"
       class="img-responsive">
   </div>
 </div>
 <div class="row">
   <div class="col-sx-12">
-    <h1>{{details.name}}</h1>
+    <h1>{{recipe.name}}</h1>
   </div>
 </div>
 <div class="row">
@@ -31,14 +31,14 @@
 </div>
   <div class="row">
     <div class="col-xs-12">
-      {{details.description}}
+      {{recipe.description}}
     </div>
   </div>
 <div class="row">
   <div class="col-xs-12">
     <ul class="list-group">
       <li
-        *ngFor="let ingred of details.ingredients"
+        *ngFor="let ingred of recipe.ingredients"
         class="list-group-item">
         <span>{{ingred.name}}</span> - <span>{{ingred.amount}}</span>
       </li>
