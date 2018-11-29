@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {RecipeService} from '../recipe.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Recipe} from '../recipe.model';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -11,6 +12,9 @@ import {Recipe} from '../recipe.model';
 export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
   id: number;
+  editMode = false;
+  recipeForm: FormGroup;
+
   constructor(private recipeService: RecipeService,
               private route: ActivatedRoute,
               private router: Router) { }
@@ -21,6 +25,7 @@ export class RecipeDetailComponent implements OnInit {
       (params: Params) => {
         this.id = +params['id'];
         this.recipe = this.recipeService.getRecipeById(this.id);
+        this.initForm();
       }
     );
   }
@@ -30,6 +35,23 @@ export class RecipeDetailComponent implements OnInit {
   onEditRecipe() {
     this.router.navigate(['edit'], {relativeTo: this.route});
     // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
+  }
+
+  private initForm() {
+    let recipeName = '';
+    let recipeImage = '';
+    let description = '';
+    if (this.editMode) {
+      const recipe = this.recipeService.getRecipeById(this.id);
+      recipeName = this.recipe.name;
+      recipeImage = this.recipe.imagePath;
+      description = this.recipe.description;
+    }
+    this.recipeForm = new FormGroup({
+      'name': new FormControl(recipeName),
+      'imagePath': new FormControl(recipeImage),
+      'description': new FormControl(description),
+    });
   }
 
 }
