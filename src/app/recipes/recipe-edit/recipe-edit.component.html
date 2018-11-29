@@ -3,8 +3,16 @@
     <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success">Save</button>
-          <button type="submit" class="btn btn-danger">Cancel</button>
+          <button
+            [disabled]="!recipeForm.valid"
+            type="submit"
+            class="btn btn-success"
+          >Save</button>
+          <button
+            type="submit"
+            class="btn btn-danger"
+            (click)="onCancel()"
+          >Cancel</button>
         </div>
       </div>
       <div class="row">
@@ -27,13 +35,14 @@
               formControlName="imagePath"
               id="imagePath"
               class="form-control"
-              type="text">
+              type="text"
+            #imagePath>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <img src="" alt="" class="img-responsive">
+          <img [src]="imagePath.value" class="img-responsive">
       </div>
       </div>
       <div class="row">
@@ -55,7 +64,8 @@
           <div
             class="row"
             *ngFor="let ingredientCrtl of getControls(); let i = index "
-            [formGroupName]="i">
+            [formGroupName]="i"
+            style="margin-top: 10px">
             <div class="col-xs-8">
               <input
                 formControlName="name"
@@ -69,8 +79,22 @@
                      class="form-control">
             </div>
             <div class="col-xs-2">
-              <button class="btn btn-danger">X</button>
+              <button
+                type="button"
+                onclick="onDeleteIngredients(i)"
+                class="btn btn-danger"
+              >X</button>
             </div>
+          </div>
+        </div>
+        <hr/>
+        <div class="row">
+          <div class="col-xs-12">
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="addNewIngredients()">
+              Add Ingredients</button>
           </div>
         </div>
       </div>
