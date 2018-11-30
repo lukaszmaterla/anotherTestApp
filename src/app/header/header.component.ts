@@ -20,6 +20,6 @@ export class HeaderComponent implements OnInit {
     );
   }
   fetchData() {
-
+    this.dataStorageService.getRecipes();
   }
 }
