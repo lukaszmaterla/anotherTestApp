@@ -7,7 +7,11 @@ import {ShoppingListService} from '../shopping-list/shopping-list.service';
 import {RecipeService} from '../recipes/recipe.service';
 import {DataStorageService} from '../shared/data-storage.service';
 import {AuthService} from '../auth/auth.service';
+import {AuthModule} from '../auth/auth.module';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from '../shared/auth.interceptor';
 
+// @ts-ignore
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -15,6 +19,7 @@ import {AuthService} from '../auth/auth.service';
   ],
   imports: [
     SharedModule,
+    AuthModule,
     AppRoutingModule,
   ],
   exports: [
@@ -26,6 +31,7 @@ import {AuthService} from '../auth/auth.service';
     RecipeService,
     DataStorageService,
     AuthService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ]
 })
 export class CoreModule {
