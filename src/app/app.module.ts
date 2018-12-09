@@ -9,7 +9,7 @@ import {AuthModule} from './auth/auth.module';
 import {CoreModule} from './core/core.module';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
-import reducers from './store/app.reducer';
+import { reducers } from './store/app.reducer';
 
 @NgModule({
   declarations: [

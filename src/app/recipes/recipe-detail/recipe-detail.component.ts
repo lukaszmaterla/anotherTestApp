@@ -5,7 +5,7 @@ import {Recipe} from '../recipe.model';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Store} from '@ngrx/store';
 import * as ShoppingListAction from '../../shopping-list/store/shopping-list.action';
-import * as formShoppingList from '../../shopping-list/store/shopping-list.reducers';
+import * as fromApp from '../../store/app.reducer';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -19,7 +19,7 @@ export class RecipeDetailComponent implements OnInit {
   constructor(private recipeService: RecipeService,
               private route: ActivatedRoute,
               private router: Router,
-              private store: Store<formShoppingList.AppState>) { }
+              private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     // const id = this.route.snapshot.params['id'];
