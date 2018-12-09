@@ -14,7 +14,7 @@ export class Signup implements Action {
 export class Signin implements Action {
   readonly type = SIGNIN;
 }
-export class Login implements Action {
+export class Logout implements Action {
   readonly type = LOGOUT;
 }
 export class SetToken implements Action {
@@ -22,4 +22,4 @@ export class SetToken implements Action {
   readonly type = SET_TOKEN;
 }
 
-export type AuthAction = Signin | Signup | Login | SetToken;
+export type AuthAction = Signin | Signup | Logout | SetToken;

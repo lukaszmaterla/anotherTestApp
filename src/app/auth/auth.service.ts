@@ -16,6 +16,12 @@ export class AuthService {
       .then(
         user => {
           this.store.dispatch(new AuthActions.Signup());
+          firebase.auth().currentUser.getIdToken()
+            .then(
+              (token: string) => {
+                this.store.dispatch(new AuthActions.SetToken(token));
+              }
+            );
         }
       )
       .catch(
@@ -43,7 +49,7 @@ export class AuthService {
 
   logout() {
     firebase.auth().signOut();
-    this.store.dispatch(new AuthActions.SetToken(null));
+    this.store.dispatch(new AuthActions.Logout());
   }
 
 }
