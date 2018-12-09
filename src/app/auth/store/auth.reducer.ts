@@ -31,6 +31,5 @@ export function authReducer(state = initialStale, action: AuthActions.AuthAction
         token: action.payload,
       };
   }
-
   return state;
 }
