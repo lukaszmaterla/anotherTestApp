@@ -1,0 +1,25 @@
+import {calcBindingFlags} from '@angular/core/src/view/util';
+import {Action} from '@ngrx/store';
+
+
+export const SIGNUP = 'SIGNUP';
+export const SIGNIN = 'SIGNIN';
+export const LOGOUT = 'LOGOUT';
+export const SET_TOKEN = 'SET_TOKEN';
+
+export class Signup implements Action {
+  readonly type = SIGNUP;
+}
+
+export class Signin implements Action {
+  readonly type = SIGNIN;
+}
+export class Login implements Action {
+  readonly type = LOGOUT;
+}
+export class SetToken implements Action {
+  constructor(public payload: string) {}
+  readonly type = SET_TOKEN;
+}
+
+export type AuthAction = Signin | Signup | Login | SetToken;
